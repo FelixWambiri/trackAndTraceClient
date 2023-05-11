@@ -48,4 +48,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
   fieldText: {
     color: "#FFFFFF",
   },
+  registerButton: {
+    color: "white",
+    marginLeft: theme.spacing(1),
+  },
 }));

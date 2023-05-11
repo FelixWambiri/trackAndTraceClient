@@ -15,7 +15,7 @@ const Header: React.FC = () => {
       <Grid item xs={12} md={8} className={classes.item}>
         <HeaderComponent
           totalSupplyChainItems={7}
-          onAddSupplyChainItem={() => navigate("/home")}
+          onAddSupplyChainItem={() => navigate("/add-item")}
         />
       </Grid>
       <Grid item xs={false} md={2}></Grid>
