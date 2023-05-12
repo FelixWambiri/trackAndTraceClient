@@ -51,7 +51,7 @@ export const useListStyles = makeStyles((theme: Theme) => ({
   chip: {
     marginLeft: theme.spacing(2),
     minWidth: 30,
-    backgroundColor: "#8B79CA",
+    backgroundColor: "#5A3EB2",
     cursor: "pointer",
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,

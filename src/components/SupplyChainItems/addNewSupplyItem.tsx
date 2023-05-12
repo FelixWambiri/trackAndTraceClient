@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import { TextField, Button, IconButton } from "@material-ui/core";
+import { ArrowBack } from "@material-ui/icons";
 
 import ResponsiveGridContainer from "./GridContainer";
-import { useCreateSupplyChainItem } from "../Queries/index";
+import { createSupplyChainItem } from "../Queries/index";
 
 interface FormValues {
   name: string;
@@ -12,11 +13,7 @@ interface FormValues {
   description: string;
 }
 
-interface Props {
-  onSubmit: (formValues: FormValues) => void;
-}
-
-const AddSupplyItemForm: React.FC<Props> = ({ onSubmit }) => {
+const AddSupplyItemForm: React.FC = () => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState<FormValues>({
     name: "",
@@ -28,7 +25,7 @@ const AddSupplyItemForm: React.FC<Props> = ({ onSubmit }) => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      useCreateSupplyChainItem(formValues);
+      createSupplyChainItem(formValues);
       setFormValues({ name: "", color: "", price: 0, description: "" });
       navigate("/");
     } catch (error) {
@@ -43,6 +40,9 @@ const AddSupplyItemForm: React.FC<Props> = ({ onSubmit }) => {
 
   return (
     <ResponsiveGridContainer>
+      <IconButton style={{ paddingLeft: 0 }} onClick={() => navigate("/")}>
+        <ArrowBack />
+      </IconButton>
       <form
         onSubmit={handleFormSubmit}
         style={{ display: "flex", flexDirection: "column", marginTop: 50 }}

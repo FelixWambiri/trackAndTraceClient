@@ -8,6 +8,7 @@ import ErrorPage from "./components/ErrorPage/index";
 import Layout from "./components/Layout/index";
 import AddNewSupplyItemForm from "./components/SupplyChainItems/addNewSupplyItem";
 import SupplyChainContainer from "./components/SupplyChainItems/index";
+import ItemDetailsPage from "./components/SupplyChainItems/itemDetailsPage";
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,14 @@ const App: React.FC = () => {
               element={
                 <Layout>
                   <AddNewSupplyItemForm />
+                </Layout>
+              }
+            />
+            <Route
+              path="/:id/item-details"
+              element={
+                <Layout>
+                  <ItemDetailsPage />
                 </Layout>
               }
             />

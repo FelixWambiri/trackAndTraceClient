@@ -8,6 +8,7 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 import { useListStyles } from "./styles";
 
@@ -18,14 +19,15 @@ interface IProps {
 
 const SupplyListItem = ({ item }: IProps) => {
   const classes = useListStyles();
+  const navigate = useNavigate();
   return (
     <ListItem
-      key={item.name}
+      key={item.id}
       className={`${classes.list} ${classes.listItem}`}
       role="listitem"
       aria-label={`${item.name}, ${item.color}, $${item.price}, ${
-        item.eventCount
-      } ${item.eventCount > 1 ? "Events" : "Event"}`}
+        item.events.length
+      } ${item.events.length > 1 ? "Events" : "Event"}`}
     >
       <Box className={classes.listItemTextContainer}>
         <ListItemText
@@ -50,6 +52,7 @@ const SupplyListItem = ({ item }: IProps) => {
           aria-label="View Details"
           aria-labelledby="right-arrow-label"
           className={classes.rightArrow}
+          onClick={() => navigate(`/${item?.id}/item-details`)}
         >
           <ChevronRight alt="Right arrow" id="right-arrow-label" />
         </IconButton>
