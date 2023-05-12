@@ -8,15 +8,18 @@ import React, {
 
 interface AppContextType {
   userToken?: string;
+  items?: any[];
 }
 
 interface AppDispatchContextType {
   setUserToken: Dispatch<SetStateAction<string | undefined>>;
+  setItems: Dispatch<SetStateAction<any[] | undefined>>;
 }
 
 const AppContext = createContext<AppContextType>({});
 const AppDispatchContext = createContext<AppDispatchContextType>({
   setUserToken: () => {},
+  setItems: () => {},
 });
 
 interface Props {
@@ -24,11 +27,13 @@ interface Props {
 }
 
 const AppContextProvider = ({ children }: Props) => {
-  const [userToken, setUserToken] = useState<string>();
+  const token = localStorage.getItem("token");
+  const [userToken, setUserToken] = useState<string>(token ?? "");
+  const [items, setItems] = useState<any[]>();
 
   return (
-    <AppContext.Provider value={{ userToken }}>
-      <AppDispatchContext.Provider value={{ setUserToken }}>
+    <AppContext.Provider value={{ userToken, items }}>
+      <AppDispatchContext.Provider value={{ setUserToken, setItems }}>
         {children}
       </AppDispatchContext.Provider>
     </AppContext.Provider>

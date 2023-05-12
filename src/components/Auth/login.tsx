@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStyles } from "./styles";
 import { Box, Typography, TextField, Button } from "@material-ui/core";
-import axiosInstance from "./utils";
+
+import { useStyles } from "./styles";
+import { axiosInstance } from "./utils";
 import ToastMessage from "../ToastMessage/index";
 import { AppDispatchContext } from "../Context/index";
 
@@ -47,6 +48,8 @@ const Login: React.FC = () => {
         password,
       });
       setUserToken(response?.data?.token);
+      localStorage.setItem("token", response?.data?.token);
+      handleMessage({ message: "Login Successfull", type: "success" });
       navigate("/");
     } catch (error) {
       const err =

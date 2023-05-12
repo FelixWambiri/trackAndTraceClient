@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     main: {
       gridArea: "main",
-      backgroundColor: "#141625",
+      backgroundColor: "#F5F5F5",
       overflow: "auto",
     },
     nav: {

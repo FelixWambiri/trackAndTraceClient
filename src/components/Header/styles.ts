@@ -40,23 +40,3 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const useHeaderStyles = makeStyles((theme: Theme) => ({
-  root: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-  },
-  item: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-    },
-    [theme.breakpoints.between("sm", "md")]: {
-      width: "50%",
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-    },
-  },
-}));

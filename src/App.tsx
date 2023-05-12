@@ -6,6 +6,7 @@ import PrivateRoutes from "./components/Auth/privateRoutes";
 import { AppContextProvider } from "./components/Context/index";
 import ErrorPage from "./components/ErrorPage/index";
 import Layout from "./components/Layout/index";
+import AddNewSupplyItemForm from "./components/SupplyChainItems/addNewSupplyItem";
 import SupplyChainContainer from "./components/SupplyChainItems/index";
 
 const App: React.FC = () => {
@@ -27,8 +28,7 @@ const App: React.FC = () => {
               path="/add-item"
               element={
                 <Layout>
-                  {/* Add the right component */}
-                  <ErrorPage />
+                  <AddNewSupplyItemForm />
                 </Layout>
               }
             />

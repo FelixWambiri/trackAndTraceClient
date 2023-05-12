@@ -1,14 +1,18 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton, Tooltip } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
+import { useNavigate } from "react-router-dom";
+
 import { useStyles } from "./styles";
 
-type NavProps = {
-  onSignOutClick: () => void;
-};
-
-const NavBar: React.FC<NavProps> = React.memo(({ onSignOutClick }) => {
+const NavBar: React.FC = React.memo(() => {
+  const navigate = useNavigate();
   const classes = useStyles();
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
     <div className={classes.root}>
@@ -19,7 +23,7 @@ const NavBar: React.FC<NavProps> = React.memo(({ onSignOutClick }) => {
             <IconButton
               color="inherit"
               aria-label="Logout"
-              onClick={onSignOutClick}
+              onClick={() => handleLogOut()}
             >
               <AccountCircle style={{ fontSize: 60 }} />
             </IconButton>

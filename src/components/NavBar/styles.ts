@@ -11,6 +11,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
     "& .MuiPaper-root ": {
       borderTopRightRadius: 20,
+      height: 120,
+      [theme.breakpoints.down("sm")]: {
+        height: 80,
+      },
     },
     "& .MuiButtonBase-root": {
       [theme.breakpoints.down("sm")]: {

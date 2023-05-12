@@ -1,25 +1,24 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { useNavigate } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
 import HeaderComponent from "./headerComponent";
-import { useHeaderStyles } from "./styles";
+import ResponsiveGridContainer from "../SupplyChainItems/GridContainer";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 
 const Header: React.FC = () => {
-  const classes = useHeaderStyles();
-  const navigate = useNavigate();
+  const classes = useStyles();
 
   return (
-    <Grid container className={classes.root}>
-      <Grid item xs={false} md={2}></Grid>
-      <Grid item xs={12} md={8} className={classes.item}>
-        <HeaderComponent
-          totalSupplyChainItems={7}
-          onAddSupplyChainItem={() => navigate("/add-item")}
-        />
-      </Grid>
-      <Grid item xs={false} md={2}></Grid>
-    </Grid>
+    <ResponsiveGridContainer className={classes.root}>
+      <HeaderComponent />
+    </ResponsiveGridContainer>
   );
 };
 

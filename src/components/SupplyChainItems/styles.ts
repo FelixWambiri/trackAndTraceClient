@@ -1,21 +1,5 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme: Theme) => ({
-  supplyChainContainer: {
-    height: "100%",
-  },
-  item: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-    },
-    [theme.breakpoints.between("sm", "md")]: {
-      width: "50%",
-    },
-  },
-}));
-
 export const useListStyles = makeStyles((theme: Theme) => ({
   list: {
     display: "flex",
